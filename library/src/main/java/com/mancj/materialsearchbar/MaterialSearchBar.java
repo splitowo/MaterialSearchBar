@@ -15,6 +15,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -298,6 +299,26 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
     private void setupSearchEditText() {
         setupCursorColor();
         searchEdit.setHighlightColor(highlightedTextColor);
+        searchEdit.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                clearIcon.setVisibility(s.length() == 0 ? GONE : VISIBLE);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+
+            }
+        });
 
         if (hintText != null)
             searchEdit.setHint(hintText);
