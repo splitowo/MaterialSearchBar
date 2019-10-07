@@ -10,11 +10,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -229,8 +229,7 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
 
     private void inflateMenuRequest(int menuResource, int iconResId
     ) {
-        int menuResource1 = menuResource;
-        if (menuResource1 > 0) {
+        if (menuResource > 0) {
             ImageView menuIcon = findViewById(R.id.mt_menu);
             if (iconResId != -1) {
                 menuIconRes = iconResId;
